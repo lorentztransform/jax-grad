@@ -42,10 +42,11 @@ result = df(3.0)  # Should return 6.0
 
 ## Implementation Roadmap
 
-1. Foundation (Current Stage):
-   - Basic scalar operations (add, multiply)
-   - Simple forward-mode differentiation
-   - Basic computational graph structure
+1. ✅ Foundation (Completed):
+   - ✅ Basic scalar operations (add, multiply, subtract)
+   - ✅ Simple forward-mode differentiation
+   - ✅ Basic computational graph structure
+   - ✅ Basic gradient computation with chain rule
 
 2. Core Computational Graph:
    - Implement proper node tracking and topological sorting
