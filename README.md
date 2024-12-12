@@ -1,11 +1,11 @@
 # JAX Automatic Differentiation Implementation
 
-This project implements automatic differentiation from scratch using JAX. It provides a foundational implementation of forward-mode and reverse-mode automatic differentiation.
+A shot at implementing automatic differentiation from scratch using JAX in my free time. 
 
 ## Setup
 
 1. Create a virtual environment using conda:
-```
+```bash
 conda create --name jax-grad python=3.10
 conda activate jax-grad
 ```
@@ -17,9 +17,33 @@ pip install -r requirements.txt
 
 ## Project Structure
 
-- `autodiff.py`: Core implementation of automatic differentiation
-- `test_autodiff.py`: Test cases for the implementation
-- `requirements.txt`: Project dependencies
+```plaintext
+jax-grad/
+├── jax_grad/                  
+│   ├── core/                  
+│   │   ├── __init__.py
+│   │   └── autodiff.py        
+│   ├── ops/                   
+│   │   ├── __init__.py
+│   │   └── math.py           
+│   ├── tensor/               
+│   │   ├── __init__.py
+│   │   └── ops.py           
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   └── grad_check.py    
+│   └── viz/                  
+├── tests/                    
+│   ├── unit/
+│   ├── integration/
+│   └── benchmarks/
+├── examples/
+│   └── basic_usage.py
+├── docs/
+├── setup.py
+├── requirements.txt
+└── README.md
+```
 
 ## Features
 
@@ -31,7 +55,7 @@ pip install -r requirements.txt
 
 Basic example:
 ```python
-from autodiff import grad
+from jax_grad import grad
 
 def f(x):
     return x ** 2
@@ -40,52 +64,6 @@ df = grad(f)
 result = df(3.0)  # Should return 6.0
 ```
 
-## Implementation Roadmap
+## Roadmap
 
-1. ✅ Foundation (Completed):
-   - ✅ Basic scalar operations (add, multiply, subtract)
-   - ✅ Simple forward-mode differentiation
-   - ✅ Basic computational graph structure
-   - ✅ Basic gradient computation with chain rule
-
-2. Core Computational Graph:
-   - Implement proper node tracking and topological sorting
-   - Add gradient accumulation mechanism
-   - Implement proper backward pass initialization
-   - Add support for intermediate gradients
-
-3. Essential Operations:
-   - Division and subtraction
-   - Power operations
-   - Basic unary operations (negation)
-   - Constants and zero-gradient handling
-
-4. Advanced Mathematical Operations:
-   - Exponential and logarithm
-   - Trigonometric functions
-   - Hyperbolic functions
-   - Handle chain rule properly for all operations
-
-5. Vector/Matrix Operations:
-   - Tensor support (beyond scalars)
-   - Broadcasting mechanisms
-   - Matrix multiplication
-   - Reduction operations (sum, mean)
-
-6. Optimization and Robustness:
-   - Gradient clipping
-   - Handle non-differentiable points
-   - Implement numerical stability improvements
-   - Add gradient checking utilities
-
-7. Advanced Features:
-   - Higher-order derivatives
-   - Batch operation support
-   - Memory optimization
-   - Graph visualization tools
-
-8. Testing and Documentation:
-   - Unit tests for each operation
-   - Integration tests for complex functions
-   - Numerical accuracy tests
-   - Usage examples and tutorials
+For detailed implementation roadmap and future plans, please see [ROADMAP.md](docs/ROADMAP.md)
